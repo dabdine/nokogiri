@@ -8,3 +8,15 @@
    fun:_dl_map_object
    ...
 }
+{
+  this leak is because xpath syntax errors raise and don't allow xmlXpathEval to clean up, see #2096 for related work
+  Memcheck:Leak
+  fun:malloc
+  fun:objspace_xmalloc0
+  fun:ruby_xmalloc0
+  fun:ruby_xmalloc_body
+  fun:ruby_xmalloc
+  fun:xmlXPathNewParserContext
+  fun:xmlXPathEval
+  fun:evaluate
+}
