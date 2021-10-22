@@ -30,3 +30,28 @@
   fun:xmlXPathEval
   fun:evaluate
 }
+{
+  this leak can be reproduced by running TestHtml5TreeConstructionNoscript01#test_0
+  Memcheck:Leak
+  fun:malloc
+  fun:gumbo_alloc
+  fun:gumbo_strdup
+  fun:handle_markup_declaration_open_state
+  fun:gumbo_lex
+  fun:gumbo_parse_with_options
+  fun:perform_parse
+  fun:parse
+}
+{
+  this leak can be reproduced by running TestHtml5TreeConstructionNoscript01#test_0
+  Memcheck:Leak
+  fun:malloc
+  fun:gumbo_alloc
+  fun:gumbo_string_buffer_to_string
+  fun:finish_temporary_buffer
+  fun:handle_doctype_name_state
+  fun:gumbo_lex
+  fun:gumbo_parse_with_options
+  fun:perform_parse
+  fun:parse
+}
