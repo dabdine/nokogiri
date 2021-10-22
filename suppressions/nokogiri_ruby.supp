@@ -9,6 +9,16 @@
    ...
 }
 {
+   this should be caught by default suppressions see #2314
+   Memcheck:Addr16
+   fun:strncmp
+   fun:is_dst
+   fun:_dl_dst_*
+   ...
+   fun:_dl_map_object
+   ...
+}
+{
   this leak is because xpath syntax errors raise and don't allow xmlXpathEval to clean up, see #2096 for related work
   Memcheck:Leak
   fun:malloc
